@@ -1,0 +1,69 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffcbcb;
+}
+h1 {
+  color: 000;
+}
+h2 {
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
+hr {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.search-button {
+  display: inline-block;
+  background-color: #de5b7b;
+  border: solid 1px #393e46;
+  border-radius: 5px;
+}
+.current-button {
+  display: inline-block;
+  background-color: #ff8f93;
+  border: solid 1px #393e46;
+  border-radius: 5px;
+}
+.bold {
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+}
+.weather-app {
+  border: solid 1px #c7a2a3;
+  border-radius: 2px;
+  box-shadow: 7px 5px 5px #c7a2a3;
+  padding: 20px;
+  max-width: 652px;
+}
+.top-weather-icon {
+  width: 70px;
+  margin: 20px 0;
+}
+.top-temperature {
+  font-size: 40px;
+}
+.week-day {
+  text-align: center;
+  margin: 7px;
+}
+.below-weather-icon {
+  width: 40px;
+  display: block;
+  margin: 0 auto;
+}
+.temperature {
+  text-align: center;
+  margin-top: 7px;
+  font-size: 16px;
+}
+.left-page {
+  padding: 0;
+  font-size: 13px;
+}
+li {
+  list-style: none;
+}

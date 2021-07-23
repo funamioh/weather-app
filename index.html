@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="weather-app">
+            <h1 id="title-city">
+            </h1>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="left-page">
+                            <li id="currentTime"></li>
+                            <li id="description"></li>
+
+                            <img class="top-weather-icon" src="icons/svg/sun.svg">
+                            <span class="top-temperature" id="current-temp"></span><a id="celsius-link" href="#">℃ </a>|
+                            <a id="fahrenheit-link" href="#">℉</a>
+                    </div>
+                    <div class="col-6">
+                        <form type="search" id="search-form" autofocus><input type="search" id="city-input"
+                                placeholder="Enter city name" autocomplete="off">
+                            <button class="search-button" id="search-button">Search</button><button
+                                class="current-button" id="current-button">Current</button>
+                        </form>
+                        <ul>
+                            <li>Humidity: <span id="humidity"></span>%</li>
+                            <li>Wind: <span id="wind"></span>m/s</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <h2>Next 6 days</h2>
+                    <hr>
+                    <div class="row">
+                        <span class="col-2">
+                            <div class="week-day">Fri</div><img class="below-weather-icon" src="icons/svg/rain.svg">
+                            <div class="temperature">7°|<a class="bold">15°</a></div>
+                        </span>
+                        <span class="col-2">
+                            <div class="week-day">Sat</div><img class="below-weather-icon" src="icons/svg/thunder.svg">
+                            <div class="temperature">3°|<a class="bold">13°</a></div>
+                        </span>
+                        <span class="col-2">
+                            <div class="week-day">Sun</div><img class="below-weather-icon" src="icons/svg/sun.svg">
+                            <div class="temperature">10°|<a class="bold">20°</a></div>
+                        </span>
+                        <span class="col-2">
+                            <div class="week-day">Mon</div><img class="below-weather-icon" src="icons/svg/snow.svg">
+                            <div class="temperature">-5°|<a class="bold">5°</a></div>
+                        </span>
+                        <span class="col-2">
+                            <div class="week-day">Tue</div><img class="below-weather-icon" src="icons/svg/cloudy.svg">
+                            <div class="temperature">4°|<a class="bold">20°</a></div>
+                        </span>
+                        <span class="col-2">
+                            <div class="week-day">Wed</div><img class="below-weather-icon" src="icons/svg/cloudy.svg">
+                            <div class="temperature">5°|<a class="bold">14°</a></div>
+                        </span>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="src/index.js"></script>
+</body>
+
+</html>
