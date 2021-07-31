@@ -20,6 +20,7 @@ hr {
   background-color: #de5b7b;
   border: solid 1px #393e46;
   border-radius: 5px;
+  margin-top: 5px;
 }
 .current-button {
   display: inline-block;
@@ -33,6 +34,7 @@ hr {
   color: black;
 }
 .weather-app {
+  margin-top: 15px;
   border: solid 1px #c7a2a3;
   border-radius: 2px;
   box-shadow: 7px 5px 5px #c7a2a3;
