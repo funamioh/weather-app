@@ -51,6 +51,7 @@ hr {
 }
 .weather-app .active {
   color: rgb(33, 33, 33);
+  font-weight: bold;
   cursor: default;
 }
 .weather-app .active:hover {
