@@ -27,7 +27,7 @@
                             <li id="currentTime"></li>
                             <li class="description" id="description"></li>
 
-                            <img class="top-weather-icon" id="#icon" src="https://openweathermap.org/img/wn/01n@2x.png">
+                            <img class="top-weather-icon" id="icon" src="http://openweathermap.org/img/wn/04d@2x.png">
                             <span class="top-temperature" id="current-temp"></span><a id="celsius-link" href="#">℃ </a>|
                             <a id="fahrenheit-link" href="#">℉</a>
                     </div>
@@ -35,9 +35,10 @@
                         <form type="search" id="search-form" autofocus><input type="search" id="city-input"
                                 placeholder="Enter city name" autocomplete="off">
                             <button class="search-button" id="search-button">Search</button><button
-                                class="current-button" id="current-button">Current</button>
+                                class="current-button" id="current-button">Current Location📍</button>
                         </form>
                         <ul>
+                            <li>Precipitation: <span id="precipitation"></span>%</li>
                             <li>Humidity: <span id="humidity"></span>%</li>
                             <li>Wind: <span id="wind"></span>m/s</li>
                         </ul>
@@ -76,9 +77,9 @@
 
                     </div>
                 </div>
-                <footer><a href="https://github.com/funamioh/weather-app">Open source code</a> by Miho Funayama</footer>
             </div>
         </div>
+        <footer><a href="https://github.com/funamioh/weather-app">Open source code</a> by Miho Funayama</footer>
 
 
         <script src="src/index.js"></script>
