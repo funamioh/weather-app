@@ -41,7 +41,13 @@ hr {
 #wind {
   font-size: 12px;
 }
-.bold {
+.weather-forecast-temp-min {
+  text-decoration: none;
+  font-weight: 400;
+  color: black;
+  opacity: 0.8;
+}
+.weather-forecast-temp-max {
   text-decoration: none;
   font-weight: 500;
   color: black;
@@ -76,9 +82,10 @@ hr {
 .top-temperature {
   font-size: 40px;
 }
-.week-day {
+.weather-forecast-date {
   text-align: center;
-  margin: 7px;
+  margin: 0 auto;
+  opacity: 0.8;
 }
 .below-weather-icon {
   width: 40px;
