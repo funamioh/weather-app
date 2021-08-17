@@ -88,7 +88,7 @@ hr {
   opacity: 0.8;
 }
 .below-weather-icon {
-  width: 40px;
+  width: 60px;
   display: block;
   margin: 0 auto;
 }
@@ -107,4 +107,5 @@ li {
 footer {
   text-align: center;
   margin-top: 30px;
+  max-width: 652px;
 }
