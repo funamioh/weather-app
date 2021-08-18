@@ -129,6 +129,11 @@ function convertToFahrenheit(event) {
   fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round((celsiusTemp)*9/5+32);
+  let forecastTempMin = document.querySelector("weather-forecast-temp-min");
+  forecastTempMin.innerHTML = Math.round((celsiusTemp)*9/5+32);
+  let forecastTempMax = document.querySelector("weather-forecast-temp-max");
+  forecastTempMax.innerHTML = Math.round((celsiusTemp)*9/5+32);
+
 }
 
 function convertToCelsius(event) {
@@ -137,6 +142,10 @@ function convertToCelsius(event) {
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
+  let forecastTempMin = document.querySelector("weather-forecast-temp-min");
+  forecastTempMin.innerHTML = Math.round(celsiusTemp);
+  let forecastTempMax = document.querySelector("weather-forecast-temp-max");
+  forecastTempMax.innerHTML = Math.round(celsiusTemp);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");

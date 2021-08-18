@@ -1,6 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ffcbcb;
+  background-color: white;
 }
 h1 {
   color: 000;
@@ -53,6 +53,7 @@ hr {
   color: black;
 }
 .weather-app {
+  background-color: #ffcbcb;
   margin-top: 15px;
   border: solid 1px #c7a2a3;
   border-radius: 2px;
