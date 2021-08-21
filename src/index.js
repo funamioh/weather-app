@@ -1,3 +1,4 @@
+//display current date and time
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -8,6 +9,20 @@ let minutes = date.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
+let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+]
 
 let days = [
   "Sunday",
@@ -18,8 +33,10 @@ let days = [
   "Friday",
   "Saturday"
 ];
-let day = days[date.getDay()];
-return `${day} ${hours}:${minutes}`;
+let weekDay = days[date.getDay()];
+let currentMonth = months[date.getMonth()];
+let currentDay = date.getDate();
+return `${weekDay}, ${currentMonth} ${currentDay} ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {
@@ -35,7 +52,10 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
   
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="weather-forecast" id="forecast">
+                    <h2>Forecast for this week</h2>
+                    <hr>
+                    <div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
     forecastHTML = 
@@ -44,12 +64,16 @@ function displayForecast(response) {
       <div class="col-2">
        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
        <img class="below-weather-icon" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"">
-       <div class="temperature"><span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min
-          )}°</span>|<span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span></div>
+       <div class="temperature"><span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span> <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min
+          )}°</span></div>
                         </div>
                         `;
+                        console.log();
+      minTemp = forecastDay.temp.min;
+      maxTemp = forecastDay.temp.max;
   }
 });
+  
 
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
@@ -63,6 +87,7 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#title-city");
   let descriptionElement = document.querySelector("#description");
@@ -72,9 +97,10 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   celsiusTemp = response.data.main.temp;
+  
 
   temperatureElement.innerHTML = Math.round(celsiusTemp);
-  cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -110,7 +136,7 @@ function searchLocation(position) {
   let lati = position.coords.latitude;
   let longi = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showWeatherCondition);
+  axios.get(url).then(displayTemperature);
 }
 
 function getCurrentLocation(event) {
@@ -130,9 +156,9 @@ function convertToFahrenheit(event) {
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round((celsiusTemp)*9/5+32);
   let forecastTempMin = document.querySelector("weather-forecast-temp-min");
-  forecastTempMin.innerHTML = Math.round((celsiusTemp)*9/5+32);
+  forecastTempMin.innerHTML = Math.round((minTemp)*9/5+32);
   let forecastTempMax = document.querySelector("weather-forecast-temp-max");
-  forecastTempMax.innerHTML = Math.round((celsiusTemp)*9/5+32);
+  forecastTempMax.innerHTML = Math.round((maxTemp)*9/5+32);
 
 }
 
@@ -143,9 +169,9 @@ function convertToCelsius(event) {
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
   let forecastTempMin = document.querySelector("weather-forecast-temp-min");
-  forecastTempMin.innerHTML = Math.round(celsiusTemp);
+  forecastTempMin.innerHTML = Math.round(minTemp);
   let forecastTempMax = document.querySelector("weather-forecast-temp-max");
-  forecastTempMax.innerHTML = Math.round(celsiusTemp);
+  forecastTempMax.innerHTML = Math.round(maxTemp);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
