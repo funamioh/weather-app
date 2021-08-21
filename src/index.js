@@ -47,6 +47,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//fetch and display forecast data
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -64,11 +65,11 @@ function displayForecast(response) {
       <div class="col-2">
        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
        <img class="below-weather-icon" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"">
-       <div class="temperature"><span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span> <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min
-          )}°</span></div>
-                        </div>
-                        `;
-                        console.log();
+       <div class="temperature"><span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span> 
+       <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
+       </div>
+       </div>`;
+      console.log();
       minTemp = forecastDay.temp.min;
       maxTemp = forecastDay.temp.max;
   }
@@ -111,6 +112,7 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+//search current city weather by a city name
 function searchCity(city) {
   let apiKey = "730afeb398d3874cb3c0cb8d98df8b85";
   let units = "metric";
@@ -118,8 +120,6 @@ function searchCity(city) {
 
   axios.get(apiUrl).then(displayTemperature);
 }
-
-
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -131,6 +131,7 @@ function handleSubmit(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
+//search current weather by current location
 function searchLocation(position) {
   let apiKey = "730afeb398d3874cb3c0cb8d98df8b85";
   let lati = position.coords.latitude;
@@ -139,6 +140,7 @@ function searchLocation(position) {
   axios.get(url).then(displayTemperature);
 }
 
+//get user's current location
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
@@ -148,7 +150,7 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Tokyo, Japan");
 
-
+//convert temperature unit to fahrenheit
 function convertToFahrenheit(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -162,6 +164,7 @@ function convertToFahrenheit(event) {
 
 }
 
+//convert temperature unit to celsius
 function convertToCelsius(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
