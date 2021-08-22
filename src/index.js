@@ -1,15 +1,15 @@
 //display current date and time
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
+  const date = new Date(timestamp);
+  const hours = date.getHours();
   if (hours < 10) {
   hours = `0${hours}`;
 }
-let minutes = date.getMinutes();
+const minutes = date.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-let months = [
+const months = [
   "Jan",
   "Feb",
   "Mar",
@@ -24,7 +24,7 @@ let months = [
   "Dec"
 ]
 
-let days = [
+const days = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -33,16 +33,16 @@ let days = [
   "Friday",
   "Saturday"
 ];
-let weekDay = days[date.getDay()];
-let currentMonth = months[date.getMonth()];
-let currentDay = date.getDate();
+const weekDay = days[date.getDay()];
+const currentMonth = months[date.getMonth()];
+const currentDay = date.getDate();
 return `${weekDay}, ${currentMonth} ${currentDay} ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const date = new Date(timestamp * 1000);
+  const day = date.getDay();
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
